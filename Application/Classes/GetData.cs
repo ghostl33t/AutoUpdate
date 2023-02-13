@@ -20,13 +20,17 @@ internal class GetData : IGetData
             if (responseBody != null)
             {
                 dynamic res = JsonConvert.DeserializeObject(responseBody);
-                return new SetupUpdate
+                if (res != null)
                 {
-                    RepeatUpdateMinutes = Convert.ToInt16(res.repeatUpdateMinutes),
-                    ClearDLLTableMinutes = Convert.ToInt16(res.clearDLLTableMinutes),
-                    DLLServerPath = res.dllServerPath,
-                    OtherServerPath = res.otherServerPath,
-                };
+                    return new SetupUpdate
+                    {
+                        Id = Convert.ToInt32(res.id),
+                        RepeatUpdateMinutes = Convert.ToInt16(res.repeatUpdateMinutes),
+                        ClearDLLTableMinutes = Convert.ToInt16(res.clearDLLTableMinutes),
+                        DLLServerPath = res.dllServerPath,
+                        OtherServerPath = res.otherServerPath,
+                    };
+                }
             }
             return null;
         }

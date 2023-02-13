@@ -40,6 +40,8 @@
             this.txtMinutesForDeleteUpdate = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnDLL = new System.Windows.Forms.Button();
+            this.btnOther = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtMinutesForUpdate
@@ -49,6 +51,7 @@
             this.txtMinutesForUpdate.Name = "txtMinutesForUpdate";
             this.txtMinutesForUpdate.Size = new System.Drawing.Size(36, 23);
             this.txtMinutesForUpdate.TabIndex = 0;
+            this.txtMinutesForUpdate.TextChanged += new System.EventHandler(this.txtMinutesForUpdate_TextChanged);
             // 
             // lbMinutes
             // 
@@ -83,8 +86,9 @@
             this.txtDLL.Location = new System.Drawing.Point(156, 63);
             this.txtDLL.MaxLength = 4000;
             this.txtDLL.Name = "txtDLL";
-            this.txtDLL.Size = new System.Drawing.Size(599, 23);
+            this.txtDLL.Size = new System.Drawing.Size(530, 23);
             this.txtDLL.TabIndex = 3;
+            this.txtDLL.TextChanged += new System.EventHandler(this.txtDLL_TextChanged);
             // 
             // lbOther
             // 
@@ -100,8 +104,9 @@
             this.txtOther.Location = new System.Drawing.Point(156, 90);
             this.txtOther.MaxLength = 4000;
             this.txtOther.Name = "txtOther";
-            this.txtOther.Size = new System.Drawing.Size(599, 23);
+            this.txtOther.Size = new System.Drawing.Size(530, 23);
             this.txtOther.TabIndex = 6;
+            this.txtOther.TextChanged += new System.EventHandler(this.txtOther_TextChanged);
             // 
             // btnExit
             // 
@@ -129,6 +134,7 @@
             this.txtMinutesForDeleteUpdate.Name = "txtMinutesForDeleteUpdate";
             this.txtMinutesForDeleteUpdate.Size = new System.Drawing.Size(36, 23);
             this.txtMinutesForDeleteUpdate.TabIndex = 8;
+            this.txtMinutesForDeleteUpdate.TextChanged += new System.EventHandler(this.txtMinutesForDeleteUpdate_TextChanged);
             // 
             // label2
             // 
@@ -148,11 +154,33 @@
             this.label3.Text = "minuta";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btnDLL
+            // 
+            this.btnDLL.Location = new System.Drawing.Point(692, 63);
+            this.btnDLL.Name = "btnDLL";
+            this.btnDLL.Size = new System.Drawing.Size(55, 23);
+            this.btnDLL.TabIndex = 12;
+            this.btnDLL.Text = "PATH";
+            this.btnDLL.UseVisualStyleBackColor = true;
+            this.btnDLL.Click += new System.EventHandler(this.btnDLL_Click);
+            // 
+            // btnOther
+            // 
+            this.btnOther.Location = new System.Drawing.Point(692, 89);
+            this.btnOther.Name = "btnOther";
+            this.btnOther.Size = new System.Drawing.Size(55, 23);
+            this.btnOther.TabIndex = 13;
+            this.btnOther.Text = "PATH";
+            this.btnOther.UseVisualStyleBackColor = true;
+            this.btnOther.Click += new System.EventHandler(this.btnOther_Click);
+            // 
             // frmImelUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 171);
+            this.Controls.Add(this.btnOther);
+            this.Controls.Add(this.btnDLL);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -190,5 +218,7 @@
         private TextBox txtMinutesForDeleteUpdate;
         private Label label2;
         private Label label3;
+        private Button btnDLL;
+        private Button btnOther;
     }
 }

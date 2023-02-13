@@ -6,7 +6,6 @@ public partial class frmImelUpdate : Form
     private readonly GetData _getData = new();
     private readonly PostData _postData = new();
     private SetupUpdate _update = new();
-    private int _newRecord = 0;
     public frmImelUpdate()
     {
         InitializeComponent();
@@ -18,26 +17,16 @@ public partial class frmImelUpdate : Form
 
         if(_update != null)
         {
-            _newRecord = 0;
             txtMinutesForUpdate.Text = _update.RepeatUpdateMinutes.ToString();
             txtMinutesForDeleteUpdate.Text = _update.ClearDLLTableMinutes.ToString();
             txtDLL.Text = _update.DLLServerPath;
             txtOther.Text = _update.OtherServerPath;
         }
-        else
-        {
-            _newRecord = 1;
-        }
     }
 
     private async void btnAccept_Click(object sender, EventArgs e)
     {
-        _update.DLLServerPath = txtDLL.Text;
-        _update.OtherServerPath = txtOther.Text;
-        _update.ClearDLLTableMinutes = Convert.ToInt16(txtMinutesForDeleteUpdate.Text);
-        _update.RepeatUpdateMinutes = Convert.ToInt16(txtMinutesForUpdate.Text);
-
-        if(_newRecord == 1)
+        if(_update.Id == 0)
         {
             await _postData.CreateSetupAsync(_update);
         }
@@ -52,5 +41,51 @@ public partial class frmImelUpdate : Form
         this.Close();
     }
 
-    
+    private void btnDLL_Click(object sender, EventArgs e)
+    {
+        using (var folderBrowserDialog = new FolderBrowserDialog())
+        {
+            folderBrowserDialog.Description = "Odaberite putanju do DLLova na serveru";
+            folderBrowserDialog.ShowNewFolderButton = false;
+            DialogResult result = folderBrowserDialog.ShowDialog();
+
+            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
+            {
+                txtDLL.Text = folderBrowserDialog.SelectedPath;
+            }
+        }
+    }
+    private void btnOther_Click(object sender, EventArgs e)
+    {
+        using (var folderBrowserDialog = new FolderBrowserDialog())
+        {
+            folderBrowserDialog.Description = "Odaberite putanju do ostalih fajlova na serveru";
+            folderBrowserDialog.ShowNewFolderButton = false;
+            DialogResult result = folderBrowserDialog.ShowDialog();
+
+            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
+            {
+                txtOther.Text = folderBrowserDialog.SelectedPath;
+            }
+        }
+    }
+    private void txtMinutesForUpdate_TextChanged(object sender, EventArgs e)
+    {
+        _update.RepeatUpdateMinutes = Convert.ToInt16(txtMinutesForUpdate.Text);
+    }
+
+    private void txtMinutesForDeleteUpdate_TextChanged(object sender, EventArgs e)
+    {
+        _update.ClearDLLTableMinutes = Convert.ToInt16(txtMinutesForDeleteUpdate.Text);
+    }
+
+    private void txtDLL_TextChanged(object sender, EventArgs e)
+    {
+        _update.DLLServerPath = txtDLL.Text;
+    }
+
+    private void txtOther_TextChanged(object sender, EventArgs e)
+    {
+        _update.OtherServerPath = txtOther.Text;
+    }
 }

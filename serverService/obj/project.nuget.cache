@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AeZff6IGikziU3mxK4kJzuVClfPZUH4FqY2zHJDWPWuFiCx2wpVOLcczibvWc0WgP5MKM6nTtwo04kfMFmHf5Q==",
+  "dgSpecHash": "mJ3I6SktbEgH/P/Q3CK219wfcRPxLTL7mxoXSwd0CIJmV5xFU+JZqNTGX0s2A7lBg0flQMiwMx8+Vq9GkLhkgw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jasim\\OneDrive\\Desktop\\ImelUpdate\\api\\serverService\\serverService.csproj",
+  "projectFilePath": "C:\\Users\\jasim\\OneDrive\\Desktop\\ImelUpdate\\AutoUpdate\\serverService\\serverService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jasim\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "C:\\Users\\jasim\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",

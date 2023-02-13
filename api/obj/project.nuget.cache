@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X8HzFZNZ88yxnYfKWk7EpbIov+hMZ1Vz5LSdRcpL0Uhz0Mbkr0oXPKj9reFenjl/NilzHPVWqXrJrCV4Sp6FAQ==",
+  "dgSpecHash": "SY8eB5e+rd8dl1IFbrfzQk5+2fh5xFImfjzeb/QRFgoliBSDcQzIfJWTXogfysF70gIAK3uPANmuvF2KWiRh2g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jasim\\OneDrive\\Desktop\\ImelUpdate\\api\\api\\api.csproj",
+  "projectFilePath": "C:\\Users\\jasim\\OneDrive\\Desktop\\ImelUpdate\\AutoUpdate\\api\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jasim\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\jasim\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

@@ -23,6 +23,7 @@ public class SetupUpdateController : Controller
         var setupDTO = new SetupUpdateDTO();
         if (setupUpdate != null)
         {
+            setupDTO.Id = setupUpdate.Id;
             setupDTO.RepeatUpdateMinutes = setupUpdate.RepeatUpdateMinutes;
             setupDTO.DLLServerPath = setupUpdate.DLLServerPath;
             setupDTO.OtherServerPath = setupUpdate.OtherServerPath;

@@ -1489,11 +1489,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jasim\\OneDrive\\Desktop\\ImelUpdate\\api\\clientService\\clientService.csproj",
+      "projectUniqueName": "C:\\Users\\jasim\\OneDrive\\Desktop\\ImelUpdate\\AutoUpdate\\clientService\\clientService.csproj",
       "projectName": "clientService",
-      "projectPath": "C:\\Users\\jasim\\OneDrive\\Desktop\\ImelUpdate\\api\\clientService\\clientService.csproj",
+      "projectPath": "C:\\Users\\jasim\\OneDrive\\Desktop\\ImelUpdate\\AutoUpdate\\clientService\\clientService.csproj",
       "packagesPath": "C:\\Users\\jasim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jasim\\OneDrive\\Desktop\\ImelUpdate\\api\\clientService\\obj\\",
+      "outputPath": "C:\\Users\\jasim\\OneDrive\\Desktop\\ImelUpdate\\AutoUpdate\\clientService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
