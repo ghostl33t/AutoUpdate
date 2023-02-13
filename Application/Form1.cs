@@ -3,6 +3,7 @@ using Application.Classes;
 namespace Application;
 public partial class frmImelUpdate : Form
 {
+    private readonly Validations _validations = new();
     private readonly GetData _getData = new();
     private readonly PostData _postData = new();
     private SetupUpdate _update = new();
@@ -88,4 +89,5 @@ public partial class frmImelUpdate : Form
     {
         _update.OtherServerPath = txtOther.Text;
     }
+
 }
