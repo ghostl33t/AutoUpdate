@@ -21,7 +21,7 @@ builder.Services.AddDbContext<DBMainContext>(options =>
     }
     else
     {
-        Console.WriteLine("ERROR: Unable to connect to SQL server(Main)");
+        Console.WriteLine("ERROR: Greska prilikom konektovanja na SQL server!");
     }
 });
 

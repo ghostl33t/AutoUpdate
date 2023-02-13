@@ -7,7 +7,7 @@ namespace api.Controllers;
 
 [ApiController]
 [Route("setup")]
-public class SetupUpdateController : Controller
+public partial class SetupUpdateController : Controller
 {
     private readonly ISetupUpdateCreate _setupRepositoryCreate;
     private readonly ISetupUpdateGet _setupRepositoryGet;
@@ -42,7 +42,7 @@ public class SetupUpdateController : Controller
             RepeatUpdateMinutes = newSetupDTO.RepeatUpdateMinutes
         };
         await _setupRepositoryCreate.CreateSetupAsync(newSetup);
-        if(newSetup.Id != 0)
+        if (newSetup.Id != 0)
         {
             return newSetup.Id;
         }
