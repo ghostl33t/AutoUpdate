@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace Application.Classes;
@@ -19,6 +20,21 @@ internal class PostData
         catch (Exception)
         {
 
+            throw;
+        }
+    }
+    public  Task<bool> CreateSetupLocalAsync(SetupUpdateLocal newSetupLocal)
+    {
+        try
+        {
+            RegistryKey key = Registry.CurrentUser.CreateSubKey("Software\\VB and VBA Program Settings\\Imel-BIS Update\\Settings"); 
+            key.SetValue("LokPath", newSetupLocal.DLLLocalPath);
+            key.SetValue("LokPathOstali", newSetupLocal.OtherLocalPath);
+            key.Close();
+            return Task.FromResult(true);
+        }
+        catch (Exception)
+        {
             throw;
         }
     }

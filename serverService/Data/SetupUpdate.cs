@@ -6,5 +6,4 @@ public class SetupUpdate
     public int ClearDLLTableMinutes { get; set; }
     public string DLLServerPath { get; set; } = string.Empty;
     public string OtherServerPath { get; set; } = string.Empty;
-
 }

@@ -1,23 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using serverService;
 using serverService.Data;
-
+using serverService.Repository;
 
 IHost host = Host.CreateDefaultBuilder(args)
-    .ConfigureServices((hostContext,services) =>
+    .ConfigureServices((hostContext, services) =>
     {
-        services.AddDbContext<DBMainContext>(options =>
-        {
-            var mainConnectionString = hostContext.Configuration.GetConnectionString("DBConnection");
-            if (mainConnectionString != null)
-            {
-                options.UseSqlServer(mainConnectionString);
-            }
-            else
-            {
-                Console.WriteLine("ERROR: Greska prilikom konektovanja na SQL server");
-            }
-        });
+        services.AddHostedService<DLLChecker>().AddSingleton<ISetupUpdate, serverService.Repository.SetupUpdate>();
     })
     .Build();
 
-host.Run();
+await host.RunAsync();

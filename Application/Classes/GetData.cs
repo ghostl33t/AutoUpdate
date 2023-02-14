@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Microsoft.Win32;
 using Newtonsoft.Json;
 
 
@@ -35,5 +36,28 @@ internal class GetData : IGetData
 
 			throw;
 		}
+    }
+
+    public  Task<SetupUpdateLocal> GetSetupLocalAsync()
+    {
+        try
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey("Software\\VB and VBA Program Settings\\Imel-BIS Update\\Settings");
+            if (key != null)
+            {
+                return Task.FromResult(new SetupUpdateLocal
+                {
+                    DLLLocalPath = key.GetValue("LokPath").ToString(),
+                    OtherLocalPath = key.GetValue("LokPathOstali").ToString(),
+                });
+            }
+            return Task.FromResult(new SetupUpdateLocal());
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+        
     }
 }

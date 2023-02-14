@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jasim\\OneDrive\\Desktop\\ImelUpdate\\AutoUpdate\\serverService\\serverService.csproj": {}
+    "C:\\Users\\iml8903\\Desktop\\ImelUpdate\\AutoUpdate\\serverService\\serverService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jasim\\OneDrive\\Desktop\\ImelUpdate\\AutoUpdate\\serverService\\serverService.csproj": {
+    "C:\\Users\\iml8903\\Desktop\\ImelUpdate\\AutoUpdate\\serverService\\serverService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jasim\\OneDrive\\Desktop\\ImelUpdate\\AutoUpdate\\serverService\\serverService.csproj",
+        "projectUniqueName": "C:\\Users\\iml8903\\Desktop\\ImelUpdate\\AutoUpdate\\serverService\\serverService.csproj",
         "projectName": "serverService",
-        "projectPath": "C:\\Users\\jasim\\OneDrive\\Desktop\\ImelUpdate\\AutoUpdate\\serverService\\serverService.csproj",
-        "packagesPath": "C:\\Users\\jasim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jasim\\OneDrive\\Desktop\\ImelUpdate\\AutoUpdate\\serverService\\obj\\",
+        "projectPath": "C:\\Users\\iml8903\\Desktop\\ImelUpdate\\AutoUpdate\\serverService\\serverService.csproj",
+        "packagesPath": "C:\\Users\\iml8903\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\iml8903\\Desktop\\ImelUpdate\\AutoUpdate\\serverService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\jasim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\iml8903\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -55,6 +55,10 @@
             "Microsoft.Extensions.Hosting": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.2, )"
             }
           },
           "imports": [
@@ -73,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

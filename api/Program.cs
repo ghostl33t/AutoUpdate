@@ -1,3 +1,5 @@
+using api.Repositories.FilesForUpdate.Interface;
+using api.Repositories.FilesForUpdate.Repository;
 using api.Repositories.SetupUpdate.Interface;
 using api.Repositories.SetupUpdate.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +29,9 @@ builder.Services.AddDbContext<DBMainContext>(options =>
 
 builder.Services.AddScoped<ISetupUpdateCreate, SetupUpdateCreate>();
 builder.Services.AddScoped<ISetupUpdateGet, SetupUpdateGet>();
+
+builder.Services.AddScoped<IUpdateObjectCreate, UpdateObjectCreate>();
+builder.Services.AddScoped<IUpdateObjectUpdate, UpdateObjectUpdate>();
 
 var app = builder.Build();
 
