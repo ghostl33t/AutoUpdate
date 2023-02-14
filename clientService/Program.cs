@@ -1,10 +1,12 @@
 using clientService;
+using clientService.Repository;
 
 IHost host = Host.CreateDefaultBuilder(args)
-    .ConfigureServices(services =>
+    .ConfigureServices((hostContext, services) =>
     {
-        services.AddHostedService<Worker>();
+        services.AddHostedService<DLLUpdateAndRegistration>().AddSingleton<ISetupUpdate, clientService.Repository.SetupUpdate>();
+        services.AddHostedService<DLLUpdateAndRegistration>().AddSingleton<IUpdateObject, clientService.Repository.UpdateObject>();
     })
     .Build();
 
-host.Run();
+await host.RunAsync();

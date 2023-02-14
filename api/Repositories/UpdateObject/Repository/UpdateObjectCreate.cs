@@ -29,7 +29,7 @@ public class UpdateObjectCreate : IUpdateObjectCreate
                         Assembly assembly = Assembly.LoadFrom(@dllFile);
                         if (assembly != null)
                         {
-                            var dllObject = new UpdateObject()
+                            var dllObject = new Models.Domain.UpdateObject()
                             {
                                 FileName = assembly.GetName().Name,
                                 FileType = FileType.DLL,
@@ -45,7 +45,7 @@ public class UpdateObjectCreate : IUpdateObjectCreate
                     {
                         if(FileVersionInfo.GetVersionInfo(dllFile).FileVersion != null)
                         {
-                            var dllObject = new UpdateObject()
+                            var dllObject = new Models.Domain.UpdateObject()
                             {
                                 FileName = Path.GetFileName(dllFile),
                                 FileType = FileType.DLL,

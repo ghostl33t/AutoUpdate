@@ -1,5 +1,6 @@
 ﻿using api.Models.DTO;
 using api.Repositories.FilesForUpdate.Interface;
+using api.Repositories.UpdateObject.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers;
@@ -10,20 +11,27 @@ public class UpdateObjectController : Controller
 {
     private readonly IUpdateObjectCreate _updateObjectCreate;
     private readonly IUpdateObjectUpdate _updateObjectUpdate;
-    public UpdateObjectController(IUpdateObjectCreate updateObjectCreate,IUpdateObjectUpdate updateObjectUpdate)
+    private readonly IUpdateObjectRead _updateObjectRead;
+    public UpdateObjectController(IUpdateObjectCreate updateObjectCreate, IUpdateObjectUpdate updateObjectUpdate, IUpdateObjectRead updateObjectRead)
     {
         _updateObjectCreate = updateObjectCreate;
-        _updateObjectUpdate = updateObjectUpdate;   
+        _updateObjectUpdate = updateObjectUpdate;
+        _updateObjectRead = updateObjectRead;
     }
-
-    //TODO: Ovu metodu pozvati ako je ImelUpdateList = 0 u Registriju
+    //OVu metodu ce pozivat client servis tako da ce znat koje dllove treba da registruje
+    [HttpGet]
+    public async Task<IActionResult> GetDLLsForUpdate()
+    {
+        return Ok(await _updateObjectRead.GetDLLsForUpdate());
+    }
+    // Ovu metodu pozvati ako je ImelUpdateList = 0 u Registriju
     [HttpPost]
     public async Task<IActionResult> CreateListOfDLLsAsync()
     {
         await _updateObjectCreate.CreateListOfDLLsAsync();
         return Ok("Objects added successfuly!");
     }
-    //TODO: Ovu metodu pozvati ako je razlicita verzija DLLa 
+    //Ovu metodu pozvati ako je razlicita verzija DLLa 
     //u bazi i u server sistemu
     [HttpPatch]
     public async Task<IActionResult> UpdateListOfDLLsAsync(UpdateObjectDTO updateObject)
@@ -31,7 +39,7 @@ public class UpdateObjectController : Controller
         await _updateObjectUpdate.UpdateObjectAsync(updateObject.FileName, updateObject.FileVersion);
         return Ok("Objects added to update successfuly!");
     }
-    //TODO: Ovu metodu pozvati ako je vrijeme isteklo za update
+    //Ovu metodu pozvati ako je vrijeme isteklo za update
     //tj ponisti sve dllove u bazi
     [HttpPatch]
     [Route("disable-update")]

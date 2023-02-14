@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fAL0IF7+eVS4hrZqssvnt3z7/PJqKk9Ox3RWQLMCQtGEkc+9rRx69627+A+1QO/VDiN/Ck+MOfiai4XOCcYs5g==",
+  "dgSpecHash": "K0zVaUqPjCciG19eIaf9w+/e1mW/rmZXmnkDsH8B6az52GrNi0ItEqb8r7gZporY86ObfIG3cnF4km+NMD6vTA==",
   "success": true,
   "projectFilePath": "C:\\Users\\iml8903\\Desktop\\ImelUpdate\\AutoUpdate\\clientService\\clientService.csproj",
   "expectedPackageFiles": [
@@ -29,6 +29,7 @@
     "C:\\Users\\iml8903\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\iml8903\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\7.0.0\\microsoft.extensions.options.configurationextensions.7.0.0.nupkg.sha512",
     "C:\\Users\\iml8903\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\iml8903\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\iml8903\\.nuget\\packages\\system.diagnostics.eventlog\\7.0.0\\system.diagnostics.eventlog.7.0.0.nupkg.sha512",
     "C:\\Users\\iml8903\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\iml8903\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"

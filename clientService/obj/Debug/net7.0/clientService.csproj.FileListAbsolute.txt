@@ -136,3 +136,4 @@ C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\clientService\obj\Debug\net7.0\re
 C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\clientService\obj\Debug\net7.0\clientService.pdb
 C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\clientService\obj\Debug\net7.0\clientService.genruntimeconfig.cache
 C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\clientService\obj\Debug\net7.0\ref\clientService.dll
+C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\clientService\bin\Debug\net7.0\Newtonsoft.Json.dll
