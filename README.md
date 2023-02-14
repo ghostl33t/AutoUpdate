@@ -1,2 +1,2 @@
 # AutoUpdate
-C# service for autoupdate on local env. 
+C# service for automatic update on local env. 
