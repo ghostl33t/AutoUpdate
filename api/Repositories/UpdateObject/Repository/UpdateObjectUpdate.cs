@@ -10,7 +10,6 @@ public class UpdateObjectUpdate : IUpdateObjectUpdate
     {
         _dbMainContext = dbMainContext;
     }
-
     public async Task<bool> UpdateObjectAsync(string objectName)
     {
         var object_ = await _dbMainContext.UpdateObjects.FirstOrDefaultAsync(s=>s.FileName == objectName);
@@ -29,7 +28,5 @@ public class UpdateObjectUpdate : IUpdateObjectUpdate
 
             throw;
         }
-        
-
     }
 }
