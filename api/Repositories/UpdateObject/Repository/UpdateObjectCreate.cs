@@ -31,9 +31,9 @@ public class UpdateObjectCreate : IUpdateObjectCreate
                         {
                             var dllObject = new Models.Domain.UpdateObject()
                             {
-                                FileName = assembly.GetName().Name,
+                                FileName = Path.GetFileName(dllFile),
                                 FileType = FileType.DLL,
-                                FileVersion = assembly.GetName().Version.ToString(),
+                                FileVersion = assembly.GetName().Version is null ? "" : assembly.GetName().Version.ToString(),
                                 AssemblyType = AssemblyType.Regasm
                             };
                             Console.WriteLine(String.Format("NET DLL: {0} Added to collection successfuly!", dllObject.FileName));
@@ -43,19 +43,27 @@ public class UpdateObjectCreate : IUpdateObjectCreate
                     }
                     catch (Exception)
                     {
-                        if(FileVersionInfo.GetVersionInfo(dllFile).FileVersion != null)
+                        try
                         {
-                            var dllObject = new Models.Domain.UpdateObject()
+                            if (FileVersionInfo.GetVersionInfo(dllFile).FileVersion != null)
                             {
-                                FileName = Path.GetFileName(dllFile),
-                                FileType = FileType.DLL,
-                                FileVersion = FileVersionInfo.GetVersionInfo(dllFile).FileVersion.ToString(),
-                                AssemblyType = AssemblyType.Regsvr32
-                            };
-                            await _dbMainContext.UpdateObjects.AddAsync(dllObject);
-                            Console.WriteLine(String.Format("VB6 DLL: {0} Added to collection successfuly!", dllObject.FileName));
-                            
+                                var dllObject = new Models.Domain.UpdateObject()
+                                {
+                                    FileName = Path.GetFileName(dllFile),
+                                    FileType = FileType.DLL,
+                                    FileVersion = FileVersionInfo.GetVersionInfo(dllFile).FileVersion.ToString(),
+                                    AssemblyType = AssemblyType.Regsvr32
+                                };
+                                await _dbMainContext.UpdateObjects.AddAsync(dllObject);
+                                Console.WriteLine(String.Format("VB6 DLL: {0} Added to collection successfuly!", dllObject.FileName));
+                            }
                         }
+                        catch (Exception)
+                        {
+
+                            throw;
+                        }
+                        
                     }
                 }
                 await _dbMainContext.SaveChangesAsync();

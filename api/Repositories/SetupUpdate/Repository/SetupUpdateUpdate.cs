@@ -10,7 +10,7 @@ public class SetupUpdateUpdate : ISetupUpdateUpdate
     {
         _dbMainContext = dbMainContext;
     }
-    public async Task<bool> CreateSetupAsync(Models.Domain.SetupUpdate setupUpdate)
+    public async Task<bool> UpdateSetupAsync(Models.Domain.SetupUpdate setupUpdate)
     {
         try
         {
@@ -24,7 +24,7 @@ public class SetupUpdateUpdate : ISetupUpdateUpdate
                     existingSetupUpdate.RepeatUpdateMinutes = setupUpdate.RepeatUpdateMinutes;
                     existingSetupUpdate.ClearDLLTableMinutes = setupUpdate.ClearDLLTableMinutes;
 
-                    await _dbMainContext.SetupUpdate.AddAsync(existingSetupUpdate);
+                    _dbMainContext.Update(existingSetupUpdate);
                     await _dbMainContext.SaveChangesAsync();
                     return true;
                 }

@@ -30,6 +30,7 @@ builder.Services.AddDbContext<DBMainContext>(options =>
 });
 
 builder.Services.AddScoped<ISetupUpdateCreate, SetupUpdateCreate>();
+builder.Services.AddScoped<ISetupUpdateUpdate, SetupUpdateUpdate>();
 builder.Services.AddScoped<ISetupUpdateGet, SetupUpdateGet>();
 
 builder.Services.AddScoped<IUpdateObjectCreate, UpdateObjectCreate>();

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api", "api\api.csproj", "{B0753CC0-1892-4A65-9C5F-ADC87C6616B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api", "api\api.csproj", "{B0753CC0-1892-4A65-9C5F-ADC87C6616B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clientService", "clientService\clientService.csproj", "{B36C7C4B-71BE-41C6-AB97-26726200844E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "clientService", "clientService\clientService.csproj", "{B36C7C4B-71BE-41C6-AB97-26726200844E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "serverService", "serverService\serverService.csproj", "{5A6D713B-DA07-4BC9-95EF-7988D42AD6E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "serverService", "serverService\serverService.csproj", "{5A6D713B-DA07-4BC9-95EF-7988D42AD6E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{CD7CFA02-2146-4536-A719-8BFBE11E3A08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{CD7CFA02-2146-4536-A719-8BFBE11E3A08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

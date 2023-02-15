@@ -10,11 +10,13 @@ namespace api.Controllers;
 public partial class SetupUpdateController : Controller
 {
     private readonly ISetupUpdateCreate _setupRepositoryCreate;
+    private readonly ISetupUpdateUpdate _setupRepositoryUpdate;
     private readonly ISetupUpdateGet _setupRepositoryGet;
-    public SetupUpdateController(ISetupUpdateCreate setupRepositoryCreate, ISetupUpdateGet setupRepositoryGet)
+    public SetupUpdateController(ISetupUpdateCreate setupRepositoryCreate, ISetupUpdateGet setupRepositoryGet, ISetupUpdateUpdate setupRepositoryUpdate)
     {
         _setupRepositoryCreate = setupRepositoryCreate;
         _setupRepositoryGet = setupRepositoryGet;
+        _setupRepositoryUpdate = setupRepositoryUpdate;
     }
     [HttpGet]
     public async Task<SetupUpdateDTO> GetSetupAsync()
@@ -54,12 +56,13 @@ public partial class SetupUpdateController : Controller
     {
         var newSetup = new SetupUpdate()
         {
+            Id = newSetupDTO.Id,
             DLLServerPath = newSetupDTO.DLLServerPath,
             OtherServerPath = newSetupDTO.OtherServerPath,
             ClearDLLTableMinutes = newSetupDTO.ClearDLLTableMinutes,
             RepeatUpdateMinutes = newSetupDTO.RepeatUpdateMinutes
         };
-        await _setupRepositoryCreate.CreateSetupAsync(newSetup);
+        await _setupRepositoryUpdate.UpdateSetupAsync(newSetup);
         if (newSetup.Id != 0)
         {
             return newSetup.Id;

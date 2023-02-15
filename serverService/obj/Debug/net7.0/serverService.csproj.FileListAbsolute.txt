@@ -142,6 +142,7 @@ C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\serverService\bin\Debug\net7.0\Mi
 C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\serverService\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\serverService\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
 C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\serverService\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\serverService\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\serverService\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
 C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\serverService\bin\Debug\net7.0\System.Diagnostics.EventLog.dll
 C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\serverService\bin\Debug\net7.0\System.Drawing.Common.dll
@@ -176,4 +177,3 @@ C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\serverService\obj\Debug\net7.0\re
 C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\serverService\obj\Debug\net7.0\serverService.pdb
 C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\serverService\obj\Debug\net7.0\serverService.genruntimeconfig.cache
 C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\serverService\obj\Debug\net7.0\ref\serverService.dll
-C:\Users\iml8903\Desktop\ImelUpdate\AutoUpdate\serverService\bin\Debug\net7.0\Newtonsoft.Json.dll

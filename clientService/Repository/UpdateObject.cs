@@ -12,29 +12,30 @@ public class UpdateObject : IUpdateObject
         try
         {
             var response = await _client.GetAsync("http://localhost:5286/object-check");
-            response.EnsureSuccessStatusCode();
-            var responseBody = await response.Content.ReadAsStringAsync();
-            if (responseBody != null)
+            if(response.IsSuccessStatusCode == true)
             {
-                dynamic res = JsonConvert.DeserializeObject(responseBody);
-                List<Data.UpdateObject> dllsForUpdate = new List<Data.UpdateObject>();
-                
-                if (res != null)
+                var responseBody = await response.Content.ReadAsStringAsync();
+                if (responseBody != null)
                 {
-                    foreach (var row in res)
+                    dynamic res = JsonConvert.DeserializeObject(responseBody);
+                    List<Data.UpdateObject> dllsForUpdate = new ();
+                    if (res != null)
                     {
-                        Data.UpdateObject objForUpdate = new()
+                        foreach (var row in res)
                         {
-                            FileName = row.fileName,
-                            FileVersion = row.fileVersion,
-                            AssemblyType = row.assemblyType
-                        };
-                        dllsForUpdate.Add(objForUpdate);
+                            Data.UpdateObject objForUpdate = new()
+                            {
+                                FileName = row.fileName,
+                                FileVersion = row.fileVersion,
+                                AssemblyType = row.assemblyType
+                            };
+                            dllsForUpdate.Add(objForUpdate);
+                        }
                     }
+                    return await Task.FromResult(dllsForUpdate);
                 }
-                return await Task.FromResult( dllsForUpdate);
             }
-            return null;
+            return new List<Data.UpdateObject>();
         }
         catch (Exception)
         {

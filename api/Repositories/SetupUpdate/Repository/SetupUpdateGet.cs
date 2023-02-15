@@ -15,7 +15,7 @@ public class SetupUpdateGet : ISetupUpdateGet
     {
 		try
 		{
-            return await _dbMainContext.SetupUpdate.FirstOrDefaultAsync();
+            return await _dbMainContext.SetupUpdate.FirstAsync();
 		}
 		catch (Exception)
 		{

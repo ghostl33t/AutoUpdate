@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Microsoft.VisualBasic;
+using Microsoft.Win32;
 using Newtonsoft.Json;
 using System.Text;
 
@@ -6,20 +7,30 @@ namespace Application.Classes;
 
 internal class PostData
 {
-    private static readonly HttpClient client = new HttpClient();
+    private  readonly HttpClient _client;
+    public PostData()
+    {
+        _client = new HttpClient();
+    }
     public async Task<bool> CreateSetupAsync(SetupUpdate newSetup)
     {
         try
         {
             var content = new StringContent(JsonConvert.SerializeObject(newSetup), Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await client.PostAsync("http://localhost:5000/setup", content);
-            response.EnsureSuccessStatusCode();
-            Console.WriteLine("Request sent successfully.");
-            return true;
+            HttpResponseMessage response = await _client.PostAsync("http://localhost:5286/setup", content);
+            if(response.IsSuccessStatusCode == true)
+            {
+                MessageBox.Show("Podešenja uspješno sačuvana!");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Podešenja nisu sačuvana.");
+                return false;
+            }
         }
         catch (Exception)
         {
-
             throw;
         }
     }

@@ -1,7 +1,7 @@
 ﻿using Application.Interfaces;
 using Microsoft.Win32;
 using Newtonsoft.Json;
-
+using System.Runtime.Versioning;
 
 namespace Application.Classes;
 internal class GetData : IGetData
@@ -11,25 +11,27 @@ internal class GetData : IGetData
     {
 		try
 		{
-            var response = await client.GetAsync("http://localhost:5000/setup");
-            response.EnsureSuccessStatusCode();
-            var responseBody = await response.Content.ReadAsStringAsync();
-            if (responseBody != null)
+            var response = await client.GetAsync("http://localhost:5286/setup");
+            if (response.IsSuccessStatusCode)
             {
-                dynamic res = JsonConvert.DeserializeObject(responseBody);
-                if (res != null)
+                var responseBody = await response.Content.ReadAsStringAsync();
+                if (responseBody != null)
                 {
-                    return new SetupUpdate
+                    dynamic res = JsonConvert.DeserializeObject(responseBody);
+                    if (res != null)
                     {
-                        Id = Convert.ToInt32(res.id),
-                        RepeatUpdateMinutes = Convert.ToInt16(res.repeatUpdateMinutes),
-                        ClearDLLTableMinutes = Convert.ToInt16(res.clearDLLTableMinutes),
-                        DLLServerPath = res.dllServerPath,
-                        OtherServerPath = res.otherServerPath,
-                    };
+                        return new SetupUpdate
+                        {
+                            Id = Convert.ToInt32(res.id),
+                            RepeatUpdateMinutes = Convert.ToInt16(res.repeatUpdateMinutes),
+                            ClearDLLTableMinutes = Convert.ToInt16(res.clearDLLTableMinutes),
+                            DLLServerPath = res.dllServerPath,
+                            OtherServerPath = res.otherServerPath,
+                        };
+                    }
                 }
             }
-            return null;
+            return  new SetupUpdate();
         }
 		catch (Exception)
 		{
@@ -37,19 +39,22 @@ internal class GetData : IGetData
 			throw;
 		}
     }
-
+    [SupportedOSPlatform("windows")]
     public  Task<SetupUpdateLocal> GetSetupLocalAsync()
     {
         try
         {
-            RegistryKey key = Registry.CurrentUser.OpenSubKey("Software\\VB and VBA Program Settings\\Imel-BIS Update\\Settings");
-            if (key != null)
+            if (OperatingSystem.IsWindows())
             {
-                return Task.FromResult(new SetupUpdateLocal
+                RegistryKey key = Registry.CurrentUser.OpenSubKey("Software\\VB and VBA Program Settings\\Imel-BIS Update\\Settings");
+                if (key != null)
                 {
-                    DLLLocalPath = key.GetValue("LokPath").ToString(),
-                    OtherLocalPath = key.GetValue("LokPathOstali").ToString(),
-                });
+                    return Task.FromResult(new SetupUpdateLocal
+                    {
+                        DLLLocalPath = key.GetValue("LokPath").ToString(),
+                        OtherLocalPath = key.GetValue("LokPathOstali").ToString(),
+                    });
+                }
             }
             return Task.FromResult(new SetupUpdateLocal());
         }

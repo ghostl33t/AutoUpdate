@@ -20,24 +20,26 @@ public class SetupUpdate : ISetupUpdate
         try
         {
             var response = await _client.GetAsync("http://localhost:5286/setup");
-            response.EnsureSuccessStatusCode();
-            var responseBody = await response.Content.ReadAsStringAsync();
-            if (responseBody != null)
+            if (response.IsSuccessStatusCode)
             {
-                dynamic res = JsonConvert.DeserializeObject(responseBody);
-                if (res != null)
+                var responseBody = await response.Content.ReadAsStringAsync();
+                if (responseBody != null)
                 {
-                    return new Data.SetupUpdate
+                    dynamic res = JsonConvert.DeserializeObject(responseBody);
+                    if (res != null)
                     {
-                        Id = Convert.ToInt32(res.id),
-                        RepeatUpdateMinutes = Convert.ToInt16(res.repeatUpdateMinutes),
-                        ClearDLLTableMinutes = Convert.ToInt16(res.clearDLLTableMinutes),
-                        DLLServerPath = res.dllServerPath,
-                        OtherServerPath = res.otherServerPath,
-                    };
+                        return new Data.SetupUpdate
+                        {
+                            Id = Convert.ToInt32(res.id),
+                            RepeatUpdateMinutes = Convert.ToInt16(res.repeatUpdateMinutes),
+                            ClearDLLTableMinutes = Convert.ToInt16(res.clearDLLTableMinutes),
+                            DLLServerPath = res.dllServerPath,
+                            OtherServerPath = res.otherServerPath,
+                        };
+                    }
                 }
             }
-            return null;
+            return new Data.SetupUpdate();
         }
         catch (Exception)
         {

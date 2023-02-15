@@ -6,7 +6,7 @@ public partial class frmImelUpdate : Form
     private readonly Validations.Validations _validations = new();
     private readonly GetData _getData = new();
     private readonly PostData _postData = new();
-
+    private readonly PatchData _patchData = new();
     private SetupUpdate _update = new();
     private SetupUpdateLocal _updateLocal = new();
     public frmImelUpdate()
@@ -37,10 +37,12 @@ public partial class frmImelUpdate : Form
         if(_update.Id == 0)
         {
             await _postData.CreateSetupAsync(_update);
+            await _postData.CreateSetupLocalAsync(_updateLocal);
         }
         else
         {
-
+            await _patchData.UpdateSetupAsync(_update);
+            await _patchData.UpdateSetupLocalAsync(_updateLocal);
         }
     }
 
